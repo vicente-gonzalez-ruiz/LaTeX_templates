@@ -1,0 +1,137 @@
+%{{{
+
+\input{documentclass}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{comment}
+\usepackage[urlcolor=black,colorlinks]{hyperref} % For tooltips ...
+\usepackage{tabularx}
+\usepackage{supertabular}
+\usepackage{listings}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+%\usepackage[spanish]{babel}
+
+\ifx \HCode\Undef
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+
+\usepackage[screen,nopanel,sectionbreak]{pdfscreen}
+\margins{0.5 cm}{0.5 cm}{0.5 cm}{0.5 cm}
+%\screensize{15 cm}{20 cm} % Raz'on 3:4
+%\screensize{12 cm}{16 cm}
+\screensize{9 cm}{12 cm}
+%\overlayempty
+%\overlay{overlay}
+%\definecolor{mybg}{rgb}{1,0.9,0.7}
+\definecolor{mybg}{rgb}{1.0,1.0,1.0}
+%\definecolor{mybg}{rgb}{0.0,1.0,1.0}
+\backgroundcolor{mybg}
+
+\sloppy % Para respetar los m'argenes! % \fussy
+
+% Tipo de letra sans serif
+\sffamily
+ % sf en el text
+\def\normalfont{\sffamily}
+% sf en las figuras tambi'en
+\renewcommand{\familydefault}{cmss}
+
+% Rellena el resto de la transparencia
+\newcommand{\dofill}{\vspace\fill}
+
+% Pie de p'agina izquierdo
+% \lfoot{\colorbox{mybg}{Pie de p'agina izquierdo}}
+
+% Pie de p'agina central
+\cfoot{\colorbox{mybg}{}}
+
+%\addto\captionsenglish{\renewcommand{\chaptername}{Part}}
+
+% Pie de p'agina derecho
+%\lfoot{\colorbox{mybg}{\footnotesize\color{green}\url{x}}}
+%\verb|\finkpath| 
+
+\renewcommand{\headrulewidth}{0mm} % fancyhdr
+\renewcommand{\footrulewidth}{0mm} % fancyhdr
+
+\pagestyle{fancy} % for fancydr package
+\pagenumbering{arabic} % Reseteamos las p'aginas
+% Cabeceras no todo en may'usculas
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+% Definici'on de las cabeceras
+\lhead{} \rhead{} \chead{}
+%\lfoot[\fancyplain{}{\sf\thepage}]{\color{blue}\fancyplain{}{\sf\rightmark}}
+%\lfoot[]{}
+%\rfoot[\fancyplain{}{\sf\leftmark}]{\color{red}\fancyplain{}{\sf\thepage}}
+%\rfoot[]{}
+%\cfoot[]{}
+\rfoot{\colorbox{mybg}{\footnotesize\color{red}\thepage/\pageref{LastPage}}}
+
+\else
+\usepackage{tex4ht}
+\DeclareGraphicsExtensions{.png, .jpg}
+\fi
+
+\newcounter{eje_counter}
+\setcounter{eje_counter}{0}
+\newenvironment{ejercicio}
+{ % Pre'ambulo
+  %\hrule
+  \begin{quote}
+  %\begin{shabox}
+  \refstepcounter{eje_counter}
+  \textbf{Ejercicio \arabic{eje_counter}:}
+  %\end{shabox}
+}
+{ % Finalizaci'on
+  \end{quote}
+  %\hrule
+}
+
+\newenvironment{solucion}
+{
+  \begin{quote}\em 
+}
+{
+  \end{quote}
+}
+
+%\getenv[\WWWROOT]{WWWROOT}
+
+%}}}
+
+\newcounter{taller_counter}
+\setcounter{taller_counter}{0}
+\newenvironment{taller}
+{ % Preámbulo
+  %\hrule
+  \begin{quote}
+  %\begin{shabox}
+  \refstepcounter{taller_counter}
+  \textbf{Taller \arabic{taller_counter}:}
+  %\end{shabox}
+}
+{ % Finalización
+  \end{quote}
+  %\hrule
+}
+\input{preamble}
+\input{authors}
+%\author{Vicente Gonz\'alez Ruiz}
+\title{}
+\begin{document}
+
+%\Css{body {
+%    color: purple;
+%    background-color: #d8da3d }}
+
+%\maketitle
+%\tableofcontents
+
+\input{texput}
+
+\end{document}
