@@ -76,49 +76,6 @@
 \DeclareGraphicsExtensions{.png, .jpg}
 \fi
 
-\newcounter{eje_counter}
-\setcounter{eje_counter}{0}
-\newenvironment{ejercicio}
-{ % Pre'ambulo
-  %\hrule
-  \begin{quote}
-  %\begin{shabox}
-  \refstepcounter{eje_counter}
-  \textbf{Ejercicio \arabic{eje_counter}:}
-  %\end{shabox}
-}
-{ % Finalizaci'on
-  \end{quote}
-  %\hrule
-}
-
-\newenvironment{solucion}
-{
-  \begin{quote}\em 
-}
-{
-  \end{quote}
-}
-
-%\getenv[\WWWROOT]{WWWROOT}
-
-%}}}
-
-\newcounter{taller_counter}
-\setcounter{taller_counter}{0}
-\newenvironment{taller}
-{ % Preámbulo
-  %\hrule
-  \begin{quote}
-  %\begin{shabox}
-  \refstepcounter{taller_counter}
-  \textbf{Taller \arabic{taller_counter}:}
-  %\end{shabox}
-}
-{ % Finalización
-  \end{quote}
-  %\hrule
-}
 \input{preamble}
 \input{authors}
 %\author{Vicente Gonz\'alez Ruiz}
@@ -131,6 +88,18 @@
 
 %\maketitle
 %\tableofcontents
+
+\newcommand{\fig}[2]{\ifx\HCode\Undfef
+\begin{center}
+  \includegraphics[height=#1pt]{#2}
+\end{center}
+\else
+\HCode{
+  <div style="text-align:center;">
+  <img height=#1 src="data/#2" />
+  </div>
+}
+\fi}
 
 \input{texput}
 
