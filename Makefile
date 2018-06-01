@@ -2,7 +2,7 @@ default:	html
 
 .PHONY: clean
 
-BIBINPUTS += ".:$(HOME)/bibs:"
+BIBINPUTS += ".:$(HOME)/bibs:$(HOME)/LaTeX_templates"
 #TEXINPUTS = ".:~/templates:"$(shell find . -name "??-*" -type d | xargs printf "%s:")$(shell find . -name "??-*" -type l | xargs printf "%s:")
 #TEXINPUTS = ".:$(HOME)/LaTeX_templates:"$(shell find . -name "??-*" -type d | xargs printf "%s:")$(shell find . -name "??-*" -type l | xargs printf "%s:")
 TEXINPUTS = ".:$(HOME)/LaTeX_templates:"
