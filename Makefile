@@ -28,7 +28,6 @@ clean:
 
 git_clean:
 	rm -f index.4ct index.4tc index.aux index.bbl index.blg index.dvi index.idv index.lg index.log index.out index.tmp index.toc index.xref index.pdf
-	make git_clean_local
 
 mrproper:
 	make clean
