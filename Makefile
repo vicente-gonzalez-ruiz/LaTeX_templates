@@ -17,7 +17,7 @@ index.html:	texput.tex
                         index.log > /dev/null ); do		\
                 (export TEXINPUTS=${TEXINPUTS}; pdflatex --interaction errorstopmode index);	\
         done
-	(export TEX4HTINPUTS=${TEXINPUTS}; export TEXINPUTS=${TEXINPUTS}; htlatex index.tex "math.cfg, index.cfg charset=utf-8" " -cunihtf -utf8")
+	(export TEX4HTINPUTS=${TEXINPUTS}; export TEXINPUTS=${TEXINPUTS}; htlatex index.tex "math.cfg, index.cfg, 2, charset=utf-8" " -cunihtf -utf8")
 
 html:	index.html
 
