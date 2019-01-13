@@ -12,7 +12,16 @@
 }
 \fi}
 
-\newcommand{\img}[2]{\ifx\HCode\Undfef
+\newcommand{\img}[1]{\ifx\HCode\Undfef
+\else
+\HCode{
+  <div style="text-align:center;">
+  <img src="#1" />
+  </div>
+}
+\fi}
+
+\newcommand{\imgw}[2]{\ifx\HCode\Undfef
 \else
 \HCode{
   <div style="text-align:center;">
@@ -23,6 +32,13 @@
 
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}} 
+
+\newcommand{\iframe}[3]{\ifx\HCode\Undfef
+\else
+\HCode{
+  <iframe width=#1 height=#2 src="#3"></iframe>
+}
+\fi}
 
 %\newcommand{\tightlist}{\ifx\HCode\Undfef
 %  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}

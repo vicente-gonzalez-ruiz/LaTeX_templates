@@ -7,7 +7,7 @@ BIBINPUTS += ".:$(HOME)/bibs:$(HOME)/LaTeX_templates"
 #TEXINPUTS = ".:$(HOME)/LaTeX_templates:"$(shell find . -name "??-*" -type d | xargs printf "%s:")$(shell find . -name "??-*" -type l | xargs printf "%s:")
 TEXINPUTS = ".:$(HOME)/LaTeX_templates:"
 
-index.html:	texput.tex
+index.html:	texput.tex $(TEX_DEPS)
 	(export TEXINPUTS=${TEXINPUTS}; pdflatex index.tex)
 	if ( grep "citation" index.aux > /dev/null); then	\
 		(export BIBINPUTS=${BIBINPUTS}; bibtex index);	\
@@ -17,7 +17,9 @@ index.html:	texput.tex
                         index.log > /dev/null ); do		\
                 (export TEXINPUTS=${TEXINPUTS}; pdflatex --interaction errorstopmode index);	\
         done
-	(export TEX4HTINPUTS=${TEXINPUTS}; export TEXINPUTS=${TEXINPUTS}; htlatex index.tex "math.cfg, index.cfg, 1, charset=utf-8" " -cunihtf -utf8")
+	(export TEX4HTINPUTS=${TEXINPUTS}; export TEXINPUTS=${TEXINPUTS}; htlatex index.tex "math.cfg, charset=utf-8" " -cunihtf -utf8")
+	#(export TEX4HTINPUTS=${TEXINPUTS}; export TEXINPUTS=${TEXINPUTS}; htlatex index.tex "math.cfg, index.cfg, 1, charset=utf-8" " -cunihtf -utf8")
+	#(export TEX4HTINPUTS=${TEXINPUTS}; export TEXINPUTS=${TEXINPUTS}; make4ht -u -c mysec.cfg -c math.cfg index.tex)
 
 html:	index.html
 
@@ -37,3 +39,4 @@ info:
 	@echo
 	@echo "Bib subdirectories (BININPUTS):" $(BIBINPUTS)
 	@echo
+	@echo "Tex dependecies (TEX_DEPS):" $(TEX_DEPS)
