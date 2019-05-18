@@ -1,34 +1,37 @@
   %\includegraphics[width=#2]{#3.pdf}
   %<img width=#1 src="graphics/#3.png" />
-\newcommand{\fig}[3]{\ifx\HCode\Undfef
+\newcommand{\myfig}[3]{\ifx\HCode\Undfef
 \begin{center}
-  \includegraphics[width=#2]{#3}
+  \includegraphics[width=#2]{#1}
 \end{center}
 \else
 \HCode{
   <div style="text-align:center;">
-  <img width=#1 src="#3" />
+  <img width=#3 src="#1.svg" />
   </div>
 }
 \fi}
 
-\newcommand{\img}[1]{\ifx\HCode\Undfef
-\else
-\HCode{
-  <div style="text-align:center;">
-  <img src="#1" />
-  </div>
-}
-\fi}
+%\newcommand{\img}[1]{\ifx\HCode\Undfef
+%\else
+%\HCode{
+%  <div style="text-align:center;">
+%  <img src="#1" />
+%  </div>
+%}
+%\fi}
 
-\newcommand{\imgw}[2]{\ifx\HCode\Undfef
-\else
-\HCode{
-  <div style="text-align:center;">
-  <img width=#1 src="#2" />
-  </div>
-}
-\fi}
+%\newcommand{\imgw}[2]{\ifx\HCode\Undfef
+%\else
+%\begin{center}
+%  \includegraphics[width=#2]{#1}
+%\end{center}
+%\HCode{
+%  <div style="text-align:center;">
+%  <img width=#1 src="#2" />
+%  </div>
+%}
+%\fi}
 
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}} 
