@@ -1,16 +1,18 @@
   %\includegraphics[width=#2]{#3.pdf}
   %<img width=#1 src="graphics/#3.png" />
-\newcommand{\myfig}[3]{\ifx\HCode\Undfef
-\begin{center}
-  \includegraphics[width=#2]{#1}
-\end{center}
-\else
-\HCode{
-  <div style="text-align:center;">
-  <img width=#3 src="#1.svg" />
-  </div>
+\newcommand{\myfig}[3]{%
+  \ifx\HCode\Undfef
+  \begin{center}
+    \includegraphics[width=#2]{#1}
+  \end{center}
+  \else
+  \HCode{%
+    <div style="text-align:center;">
+    <img width=#3 src="#1.svg" />
+    </div>
+  }
+  \fi
 }
-\fi}
 
 %\newcommand{\img}[1]{\ifx\HCode\Undfef
 %\else
@@ -34,14 +36,17 @@
 %\fi}
 
 \providecommand{\tightlist}{%
-  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}} 
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}
+} 
 
-\newcommand{\iframe}[3]{\ifx\HCode\Undfef
-\else
-\HCode{
-  <iframe width=#1 height=#2 src="#3"></iframe>
+\newcommand{\iframe}[3]{%
+  \ifx\HCode\Undfef
+  \else
+  \HCode{%
+    <iframe width=#1 height=#2 src="#3"></iframe>
+  }
+  \fi
 }
-\fi}
 
 %\newcommand{\tightlist}{\ifx\HCode\Undfef
 %  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}
