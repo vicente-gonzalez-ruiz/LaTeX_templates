@@ -13,9 +13,11 @@ index.html:	texput.tex $(TEX_DEPS)
 	if ( grep "citation" index.aux > /dev/null); then	\
 		(export BIBINPUTS=${BIBINPUTS}; bibtex index);	\
 	fi
+	makeglossaries index
 	(export TEXINPUTS=${TEXINPUTS}; pdflatex index.tex)
 	while ( grep "Rerun to get cross-references" 		\
                         index.log > /dev/null ); do		\
+		makeglossaries index;				\
                 (export TEXINPUTS=${TEXINPUTS}; pdflatex --interaction errorstopmode index);	\
         done
 	(export TEX4HTINPUTS=${TEXINPUTS}; export TEXINPUTS=${TEXINPUTS}; htlatex index.tex "math.cfg, charset=utf-8" " -cunihtf -utf8")
