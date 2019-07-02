@@ -8,6 +8,7 @@ BIBINPUTS += ".:$(HOME)/bibs:$(HOME)/LaTeX_templates"
 TEXINPUTS = ".:$(HOME)/LaTeX_templates:"
 
 index.html:	texput.tex $(TEX_DEPS)
+	make -C graphics
 	(export TEXINPUTS=${TEXINPUTS}; pdflatex index.tex)
 	if ( grep "citation" index.aux > /dev/null); then	\
 		(export BIBINPUTS=${BIBINPUTS}; bibtex index);	\
