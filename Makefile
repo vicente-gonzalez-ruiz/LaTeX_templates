@@ -2,10 +2,10 @@ default:	html
 
 .PHONY: clean
 
-BIBINPUTS += ".:$(HOME)/bibs:$(HOME)/LaTeX_templates"
+BIBINPUTS += ".:$(BIBS):$(LATEX_TEMPLATES)"
 #TEXINPUTS = ".:~/templates:"$(shell find . -name "??-*" -type d | xargs printf "%s:")$(shell find . -name "??-*" -type l | xargs printf "%s:")
 #TEXINPUTS = ".:$(HOME)/LaTeX_templates:"$(shell find . -name "??-*" -type d | xargs printf "%s:")$(shell find . -name "??-*" -type l | xargs printf "%s:")
-TEXINPUTS = ".:$(HOME)/LaTeX_templates:"
+TEXINPUTS = ".:$(LATEX_TEMPLATES):"
 
 index.html:	texput.tex $(TEX_DEPS)
 	make -C graphics
