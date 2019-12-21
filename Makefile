@@ -10,7 +10,7 @@ TEXINPUTS = ".:$(LATEX_TEMPLATES):"
 index.html:	texput.tex $(TEX_DEPS)
 	@echo -e "\e[91mCompiling index.tex\e[0m"
 	make -C graphics
-	(export TEXINPUTS=${TEXINPUTS}; pdflatex index.tex > /tmp/index.log)
+	(export TEXINPUTS=${TEXINPUTS}; pdflatex index.tex)
 	if ( grep "citation" index.aux > /dev/null); then	\
 		(export BIBINPUTS=${BIBINPUTS}; bibtex index);	\
 	fi
