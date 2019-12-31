@@ -7,7 +7,7 @@ BIBINPUTS += ".:$(BIBS):$(LATEX_TEMPLATES)"
 #TEXINPUTS = ".:$(HOME)/LaTeX_templates:"$(shell find . -name "??-*" -type d | xargs printf "%s:")$(shell find . -name "??-*" -type l | xargs printf "%s:")
 TEXINPUTS = ".:$(LATEX_TEMPLATES):"
 
-index.html:	texput.tex $(TEX_DEPS)
+index.pdf:	texput.tex $(TEX_DEPS)
 	@echo -e "\e[91mCompiling index.tex\e[0m"
 	if [ -d "graphics" ]; \
 	then \
@@ -24,6 +24,7 @@ index.html:	texput.tex $(TEX_DEPS)
 		makeglossaries index;				\
                 (export TEXINPUTS=${TEXINPUTS}; pdflatex --interaction errorstopmode index);	\
         done
+index.html:	index.pdf
 	(export TEX4HTINPUTS=${TEXINPUTS}; export TEXINPUTS=${TEXINPUTS}; htlatex index.tex "math.cfg, charset=utf-8" " -cunihtf -utf8")
 	#(export TEX4HTINPUTS=${TEXINPUTS}; export TEXINPUTS=${TEXINPUTS}; htlatex index.tex "math.cfg, index.cfg, 1, charset=utf-8" " -cunihtf -utf8")
 	#(export TEX4HTINPUTS=${TEXINPUTS}; export TEXINPUTS=${TEXINPUTS}; make4ht -u -c mysec.cfg -c math.cfg index.tex)
