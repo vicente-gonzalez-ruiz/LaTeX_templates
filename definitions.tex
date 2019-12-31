@@ -56,6 +56,17 @@
   \fi
 }
 
+\newcommand{\webfig}[3]{%
+  \ifx\HCode\Undfef
+  \else
+  \HCode{%
+    <div style="text-align:center;">
+    <img width=#3 src="#1" />
+    </div>
+  }
+  \fi
+}
+
 %\newcommand{\img}[1]{\ifx\HCode\Undfef
 %\else
 %\HCode{
