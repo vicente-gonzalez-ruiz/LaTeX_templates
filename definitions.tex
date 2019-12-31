@@ -14,6 +14,48 @@
   \fi
 }
 
+\newcommand{\svgfig}[3]{%
+  \ifx\HCode\Undfef
+  \begin{center}
+    \includegraphics[width=#2]{#1}
+  \end{center}
+  \else
+  \HCode{%
+    <div style="text-align:center;">
+    <img width=#3 src="#1.svg" />
+    </div>
+  }
+  \fi
+}
+
+\newcommand{\pngfig}[3]{%
+  \ifx\HCode\Undfef
+  \begin{center}
+    \includegraphics[width=#2]{#1}
+  \end{center}
+  \else
+  \HCode{%
+    <div style="text-align:center;">
+    <img width=#3 src="#1.png" />
+    </div>
+  }
+  \fi
+}
+
+\newcommand{\jpgfig}[3]{%
+  \ifx\HCode\Undfef
+  \begin{center}
+    \includegraphics[width=#2]{#1}
+  \end{center}
+  \else
+  \HCode{%
+    <div style="text-align:center;">
+    <img width=#3 src="#1.jpg" />
+    </div>
+  }
+  \fi
+}
+
 %\newcommand{\img}[1]{\ifx\HCode\Undfef
 %\else
 %\HCode{
