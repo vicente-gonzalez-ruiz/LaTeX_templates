@@ -28,6 +28,17 @@
   \fi
 }
 
+\newcommand{\svg}[2]{%
+  \ifx\HCode\Undfef
+  \else
+  \HCode{%
+    <div style="text-align:center;">
+    <img width=#2 src="graphics/#1.svg" />
+    </div>
+  }
+  \fi
+}
+
 \newcommand{\pngfig}[3]{%
   \ifx\HCode\Undfef
   \begin{center}
@@ -37,6 +48,17 @@
   \HCode{%
     <div style="text-align:center;">
     <img width=#3 src="#1.png" />
+    </div>
+  }
+  \fi
+}
+
+\newcommand{\png}[2]{%
+  \ifx\HCode\Undfef
+  \else
+  \HCode{%
+    <div style="text-align:center;">
+    <img width=#2 src="graphics/#1.png" />
     </div>
   }
   \fi
