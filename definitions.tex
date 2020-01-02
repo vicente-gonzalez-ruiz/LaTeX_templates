@@ -53,12 +53,12 @@
   \fi
 }
 
-\newcommand{\png}[2]{%
+\newcommand{\png}[1]{%
   \ifx\HCode\Undfef
   \else
   \HCode{%
     <div style="text-align:center;">
-    <img width=#2 src="graphics/#1.png" />
+    <img src="graphics/#1.png" />
     </div>
   }
   \fi
@@ -73,6 +73,17 @@
   \HCode{%
     <div style="text-align:center;">
     <img width=#3 src="#1.jpg" />
+    </div>
+  }
+  \fi
+}
+
+\newcommand{\jpg}[1]{%
+  \ifx\HCode\Undfef
+  \else
+  \HCode{%
+    <div style="text-align:center;">
+    <img src="graphics/#1.jpg" />
     </div>
   }
   \fi
