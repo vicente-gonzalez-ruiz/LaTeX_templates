@@ -24,10 +24,27 @@ index.pdf:	texput.tex $(TEX_DEPS)
 		makeglossaries index;				\
                 (export TEXINPUTS=${TEXINPUTS}; pdflatex --interaction errorstopmode index);	\
         done
+
+# htlatex filename "options for tex4ht.sty" "options for tex4ht" "options for t4ht" "LaTeX options"
+# https://github.com/michal-h21/helpers4ht/wiki/tex4ht-tutorial
+
 index.html:	index.pdf
-	#(export TEX4HTINPUTS=${TEXINPUTS}; export TEXINPUTS=${TEXINPUTS}; htlatex index.tex "math.cfg, charset=utf-8" " -cunihtf -utf8")
+	(export TEX4HTINPUTS=${TEXINPUTS}; export TEXINPUTS=${TEXINPUTS}; htlatex index.tex)
+
+	# Rare fonts
+	#(export TEX4HTINPUTS=${TEXINPUTS}; export TEXINPUTS=${TEXINPUTS}; htlatex index.tex "xhtml,mathml" " -cunihtf" "-cvalidate")
+	#(export TEX4HTINPUTS=${TEXINPUTS}; export TEXINPUTS=${TEXINPUTS}; make4ht index.tex)
+	#(export TEX4HTINPUTS=${TEXINPUTS}; export TEXINPUTS=${TEXINPUTS}; make4ht -uf html5 index.tex)
+	#(export TEX4HTINPUTS=${TEXINPUTS}; export TEXINPUTS=${TEXINPUTS}; make4ht -uf html5+mathjax -c math.cfg index.tex)
+	#(export TEX4HTINPUTS=${TEXINPUTS}; export TEXINPUTS=${TEXINPUTS}; htlatex index.tex "math2.cfg, charset=utf-8" " -cunihtf -utf8")
+	#(export TEX4HTINPUTS=${TEXINPUTS}; export TEXINPUTS=${TEXINPUTS}; htlatex index.tex "math.cfg, charset=utf-8, mathjax" " -cunihtf -utf8")
 	#(export TEX4HTINPUTS=${TEXINPUTS}; export TEXINPUTS=${TEXINPUTS}; htlatex index.tex "math.cfg, index.cfg, 1, charset=utf-8" " -cunihtf -utf8")
-	(export TEX4HTINPUTS=${TEXINPUTS}; export TEXINPUTS=${TEXINPUTS}; make4ht -u -c mysec.cfg -c math2.cfg index.tex "mathjax")
+	#(export TEX4HTINPUTS=${TEXINPUTS}; export TEXINPUTS=${TEXINPUTS}; make4ht -u -c mysec.cfg -c math.cfg index.tex "mathjax")
+	#(export TEX4HTINPUTS=${TEXINPUTS}; export TEXINPUTS=${TEXINPUTS}; htlatex index.tex "math.cfg, mathjax" " -cunihtf -utf8")
+
+	# No refs
+	#(export TEX4HTINPUTS=${TEXINPUTS}; export TEXINPUTS=${TEXINPUTS}; make4ht index.tex "math2.cfg, mathjax" " -cunihtf -utf8")
+	#(export TEX4HTINPUTS=${TEXINPUTS}; export TEXINPUTS=${TEXINPUTS}; make4ht -u -c mysec.cfg -c math2.cfg index.tex "mathjax")
 
 html:	index.html
 
