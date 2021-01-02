@@ -29,11 +29,15 @@ index.pdf:	texput.tex $(TEX_DEPS)
 # https://github.com/michal-h21/helpers4ht/wiki/tex4ht-tutorial
 
 index.html:	index.pdf
-	(export TEX4HTINPUTS=${TEXINPUTS}; export TEXINPUTS=${TEXINPUTS}; htlatex index.tex)
+	# Math as PNG
+	#(export TEX4HTINPUTS=${TEXINPUTS}; export TEXINPUTS=${TEXINPUTS}; htlatex index.tex)
+	#(export TEX4HTINPUTS=${TEXINPUTS}; export TEXINPUTS=${TEXINPUTS}; make4ht index.tex)
+
+	# Math with mathml
+	(export TEX4HTINPUTS=${TEXINPUTS}; export TEXINPUTS=${TEXINPUTS}; htlatex index.tex "xhtml,mathml" " -cunihtf" "-cvalidate")
 
 	# Rare fonts
 	#(export TEX4HTINPUTS=${TEXINPUTS}; export TEXINPUTS=${TEXINPUTS}; htlatex index.tex "xhtml,mathml" " -cunihtf" "-cvalidate")
-	#(export TEX4HTINPUTS=${TEXINPUTS}; export TEXINPUTS=${TEXINPUTS}; make4ht index.tex)
 	#(export TEX4HTINPUTS=${TEXINPUTS}; export TEXINPUTS=${TEXINPUTS}; make4ht -uf html5 index.tex)
 	#(export TEX4HTINPUTS=${TEXINPUTS}; export TEXINPUTS=${TEXINPUTS}; make4ht -uf html5+mathjax -c math.cfg index.tex)
 	#(export TEX4HTINPUTS=${TEXINPUTS}; export TEXINPUTS=${TEXINPUTS}; htlatex index.tex "math2.cfg, charset=utf-8" " -cunihtf -utf8")
