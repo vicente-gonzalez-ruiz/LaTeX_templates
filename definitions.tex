@@ -53,12 +53,12 @@
   \fi
 }
 
-\newcommand{\png}[1]{%
+\newcommand{\png}[2]{%
   \ifx\HCode\Undfef
   \else
   \HCode{%
     <div style="text-align:center;">
-    <img src="graphics/#1.png" />
+    <img width=#2 src="#1.png" />
     </div>
   }
   \fi
