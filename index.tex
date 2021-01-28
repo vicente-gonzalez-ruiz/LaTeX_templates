@@ -5,6 +5,8 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{mathtools}
+\usepackage{etoolbox}
+\patchcmd{\thebibliography}{\section*{\refname}}{}{}{}
 \usepackage{graphicx}
 \usepackage{comment}
 \usepackage[urlcolor=black,colorlinks]{hyperref} % For tooltips ...
