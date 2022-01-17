@@ -1,3 +1,9 @@
+\newcounter{myalg}[section]
+\newenvironment{myalg}[3] {
+  \refstepcounter{myalg}
+  \textbf{Algorithm \themyalg}: {#1}(#2) $\rightarrow$ (#3)\newline
+}
+
   %\includegraphics[width=#2]{#3.pdf}
   %<img width=#1 src="graphics/#3.png" />
 \newcommand{\myfig}[3]{%
