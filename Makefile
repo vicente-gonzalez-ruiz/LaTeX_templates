@@ -29,6 +29,7 @@ index.pdf:	texput.tex $(TEX_DEPS) ~/bibs
 # https://github.com/michal-h21/helpers4ht/wiki/tex4ht-tutorial
 
 index.html:	index.pdf
+	(export TEX4HTINPUTS=${TEXINPUTS}; export TEXINPUTS=${TEXINPUTS}; make4ht -sc myconfig.cfg index.tex "0,mathjax,p-indent,charset=utf-8" " -cunihtf -utf8")
 
 	#(export TEX4HTINPUTS=${TEXINPUTS}; export TEXINPUTS=${TEXINPUTS}; make4ht -f html5+mathjax index.tex)
 	#(export TEX4HTINPUTS=${TEXINPUTS}; export TEXINPUTS=${TEXINPUTS}; make4ht -f html5 index.tex)
@@ -39,7 +40,7 @@ index.html:	index.pdf
 	#(export TEX4HTINPUTS=${TEXINPUTS}; export TEXINPUTS=${TEXINPUTS}; make4ht index.tex)
 
 	# Math with mathml
-	(export TEX4HTINPUTS=${TEXINPUTS}; export TEXINPUTS=${TEXINPUTS}; htlatex index.tex "xhtml,mathml" " -cunihtf" "-cvalidate")
+	####(export TEX4HTINPUTS=${TEXINPUTS}; export TEXINPUTS=${TEXINPUTS}; htlatex index.tex "xhtml,mathml" " -cunihtf" "-cvalidate")
 
 	# Rare fonts
 	#(export TEX4HTINPUTS=${TEXINPUTS}; export TEXINPUTS=${TEXINPUTS}; htlatex index.tex "xhtml,mathml" " -cunihtf" "-cvalidate")
