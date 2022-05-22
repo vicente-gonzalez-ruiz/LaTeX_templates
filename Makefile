@@ -7,7 +7,7 @@ BIBINPUTS += ".:$(BIBS):$(LATEX_TEMPLATES)"
 #TEXINPUTS = ".:$(HOME)/LaTeX_templates:"$(shell find . -name "??-*" -type d | xargs printf "%s:")$(shell find . -name "??-*" -type l | xargs printf "%s:")
 TEXINPUTS = ".:$(LATEX_TEMPLATES):"
 
-index.pdf:	texput.tex $(TEX_DEPS)
+index.pdf:	texput.tex $(TEX_DEPS) ~/bibs
 	@echo -e "\e[91mCompiling index.tex\e[0m"
 	if [ -d "graphics" ]; \
 	then \
@@ -29,6 +29,7 @@ index.pdf:	texput.tex $(TEX_DEPS)
 # https://github.com/michal-h21/helpers4ht/wiki/tex4ht-tutorial
 
 index.html:	index.pdf
+
 	#(export TEX4HTINPUTS=${TEXINPUTS}; export TEXINPUTS=${TEXINPUTS}; make4ht -f html5+mathjax index.tex)
 	#(export TEX4HTINPUTS=${TEXINPUTS}; export TEXINPUTS=${TEXINPUTS}; make4ht -f html5 index.tex)
 	#(export TEX4HTINPUTS=${TEXINPUTS}; export TEXINPUTS=${TEXINPUTS}; make4ht index.tex)
