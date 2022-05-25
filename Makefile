@@ -29,7 +29,9 @@ index.pdf:	texput.tex $(TEX_DEPS) ~/bibs
 # https://github.com/michal-h21/helpers4ht/wiki/tex4ht-tutorial
 
 index.html:	index.pdf
-	(export TEX4HTINPUTS=${TEXINPUTS}; export TEXINPUTS=${TEXINPUTS}; make4ht -sc myconfig.cfg index.tex "0,mathjax,p-indent,charset=utf-8" " -cunihtf -utf8")
+	(export TEX4HTINPUTS=${TEXINPUTS}; export TEXINPUTS=${TEXINPUTS}; htlatex index.tex "footnotes_in.cfg,xhtml,html5,mathjax,charset=utf-8" " -cunihtf -utf8")
+	#(export TEX4HTINPUTS=${TEXINPUTS}; export TEXINPUTS=${TEXINPUTS}; make4ht index.tex "mathjax")
+	#(export TEX4HTINPUTS=${TEXINPUTS}; export TEXINPUTS=${TEXINPUTS}; make4ht -sc myconfig.cfg index.tex "0,mathjax,p-indent,charset=utf-8" " -cunihtf -utf8")
 
 	#(export TEX4HTINPUTS=${TEXINPUTS}; export TEXINPUTS=${TEXINPUTS}; make4ht -f html5+mathjax index.tex)
 	#(export TEX4HTINPUTS=${TEXINPUTS}; export TEXINPUTS=${TEXINPUTS}; make4ht -f html5 index.tex)
@@ -48,7 +50,7 @@ index.html:	index.pdf
 	#(export TEX4HTINPUTS=${TEXINPUTS}; export TEXINPUTS=${TEXINPUTS}; make4ht -uf html5+mathjax -c math.cfg index.tex)
 	#(export TEX4HTINPUTS=${TEXINPUTS}; export TEXINPUTS=${TEXINPUTS}; htlatex index.tex "math2.cfg, charset=utf-8" " -cunihtf -utf8")
 	#(export TEX4HTINPUTS=${TEXINPUTS}; export TEXINPUTS=${TEXINPUTS}; htlatex index.tex "math.cfg, charset=utf-8, mathjax" " -cunihtf -utf8")
-	#(export TEX4HTINPUTS=${TEXINPUTS}; export TEXINPUTS=${TEXINPUTS}; htlatex index.tex "math.cfg, index.cfg, 1, charset=utf-8" " -cunihtf -utf8")
+	#(export TEX4HTINPUTS=${TEXINPUTS}; export TEXINPUTS=${TEXINPUTS}; htlatex index.tex "math.cfg, index.cfg, 1, charset=utf-8" " -cunihtf -utf8") # Este permite controlar el tamaño de las figuras
 	#(export TEX4HTINPUTS=${TEXINPUTS}; export TEXINPUTS=${TEXINPUTS}; make4ht -u -c mysec.cfg -c math.cfg index.tex "mathjax")
 	#(export TEX4HTINPUTS=${TEXINPUTS}; export TEXINPUTS=${TEXINPUTS}; htlatex index.tex "math.cfg, mathjax" " -cunihtf -utf8")
 
