@@ -58,6 +58,7 @@ index.html:	index.pdf
 	# No refs
 	#(export TEX4HTINPUTS=${TEXINPUTS}; export TEXINPUTS=${TEXINPUTS}; make4ht index.tex "math2.cfg, mathjax" " -cunihtf -utf8")
 	#(export TEX4HTINPUTS=${TEXINPUTS}; export TEXINPUTS=${TEXINPUTS}; make4ht -u -c mysec.cfg -c math2.cfg index.tex "mathjax")
+	rm -f index.4ct index.4tc index.acn index.acr index.alg index.aux index.bbl index.blg index.dvi index.idv index.idx index.lg index.log index.out index.tmp index.toc index.xdy index.xref
 
 html:	index.html
 
