@@ -7,7 +7,7 @@ BIBINPUTS += ".:$(BIBS):$(LATEX_TEMPLATES)"
 #TEXINPUTS = ".:$(HOME)/LaTeX_templates:"$(shell find . -name "??-*" -type d | xargs printf "%s:")$(shell find . -name "??-*" -type l | xargs printf "%s:")
 TEXINPUTS = ".:$(LATEX_TEMPLATES):"
 
-index.pdf:	texput.tex $(TEX_DEPS) ~/bibs
+index.pdf:	texput.tex $(TEX_DEPS) ~/repos/bibs
 	@echo -e "\e[91mCompiling index.tex\e[0m"
 	if [ -d "graphics" ]; \
 	then \
