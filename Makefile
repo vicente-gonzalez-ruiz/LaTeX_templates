@@ -6,14 +6,16 @@ BIBINPUTS += ".:$(BIBS):$(LATEX_TEMPLATES)"
 #TEXINPUTS = ".:~/templates:"$(shell find . -name "??-*" -type d | xargs printf "%s:")$(shell find . -name "??-*" -type l | xargs printf "%s:")
 #TEXINPUTS = ".:$(HOME)/LaTeX_templates:"$(shell find . -name "??-*" -type d | xargs printf "%s:")$(shell find . -name "??-*" -type l | xargs printf "%s:")
 TEXINPUTS = ".:$(LATEX_TEMPLATES):"
+DEPS := $(wildcard *.tex)
 
-index.pdf:	texput.tex $(TEX_DEPS) ~/repos/bibs
+index.pdf:	texput.tex $(DEPS) ~/repos/bibs
+	@echo $(DEPS)
 	@echo -e "\e[91mCompiling index.tex\e[0m"
 	if [ -d "graphics" ]; \
 	then \
 		make -C graphics; \
 	fi
-	(export TEXINPUTS=${TEXINPUTS}; pdflatex index.tex)
+	(export TEXINPUTS=${TEXINPUTS}; pdflatex index.tex) # index.tex is in LaTeX_templates
 	if ( grep "citation" index.aux > /dev/null); then	\
 		(export BIBINPUTS=${BIBINPUTS}; bibtex index);	\
 	fi
@@ -74,8 +76,8 @@ mrproper:
 	make clean
 
 info:
-	@echo "Tex subdirectories (TEXINPUTS):" $(TEXINPUTS)
+	@echo "Tex subdirectories:" $(TEXINPUTS)
 	@echo
-	@echo "Bib subdirectories (BININPUTS):" $(BIBINPUTS)
+	@echo "Bib subdirectories:" $(BIBINPUTS)
 	@echo
-	@echo "Tex dependecies (TEX_DEPS):" $(TEX_DEPS)
+	@echo "Dependecies:" $(DEPS)
