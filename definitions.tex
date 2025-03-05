@@ -6,7 +6,7 @@
 
   %\includegraphics[width=#2]{#3.pdf}
   %<img width=#1 src="graphics/#3.png" />
-\newcommand{\myfig}[3]{%
+\newcommand{\oldmyfig}[3]{%
   \ifx\HCode\Undfef
   \begin{center}
     \includegraphics[width=#2]{#1}
@@ -17,6 +17,18 @@
     <img width=#3 src="#1.svg" />
     </div>
   }
+  \fi
+}
+
+\newcommand{\myfig}[3]{%
+  \ifx\HCode\Undfef
+    \includegraphics[width=#2]{#1}
+  \else
+    \HCode{%
+      <div style="text-align:center;">
+        <img width=#3 src="#1.svg" />
+      </div>
+    }
   \fi
 }
 
